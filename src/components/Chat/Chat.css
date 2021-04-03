@@ -159,7 +159,7 @@
     display: flex;
     flex-direction: column;
     visibility: visible;
-    height: 320px;
+    height: 360px;
 }
 
 .chat__main_b-size {

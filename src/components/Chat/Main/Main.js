@@ -10,7 +10,7 @@ import Footer from '../Footer';
 
 import { Context } from '../../../contexts/Contexts';
 
-function Main() {
+function Main({ setMessage, sendMessage }) {
 
   const context = React.useContext(Context);
   const minimize = context.minimize;
@@ -20,10 +20,10 @@ function Main() {
 
   return (
     <div className={`chat__main ${ large  ? "chat__main_b-size" : ""}`} style={ minimize ? {display: 'none'} : {display: 'flex'} }>  
-      { link === 'general' && 
+      { link === 'general' && lang === 'RU' && 
       <>
       <General lang={lang}/>
-      <Footer />
+      <Footer setMessage={setMessage} sendMessage={sendMessage}/>
       </>
       }
       { link === 'clan' && <Clan/>}

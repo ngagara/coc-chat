@@ -3,7 +3,6 @@ import { Context } from '../../contexts/Contexts';
 import { NAV } from '../../constants/constants'
 
 import Header from './Header'
-import Footer from './Footer';
 import Main from './Main/Main';
 
 import api from '../../utils/api'
@@ -166,7 +165,7 @@ function Chat() {
        isShift={isShift}
        isActive={isActive}
        />
-      <Main/>
+      <Main setMessage={setMessage} sendMessage={sendMessage}/>
     </aside>
     </Context.Provider>
   );
