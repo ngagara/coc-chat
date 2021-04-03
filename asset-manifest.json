@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/coc-chat/static/css/main.7135b26b.chunk.css",
+    "main.js": "/coc-chat/static/js/main.13c146e9.chunk.js",
+    "main.js.map": "/coc-chat/static/js/main.13c146e9.chunk.js.map",
+    "runtime-main.js": "/coc-chat/static/js/runtime-main.870c5925.js",
+    "runtime-main.js.map": "/coc-chat/static/js/runtime-main.870c5925.js.map",
+    "static/js/2.19b70482.chunk.js": "/coc-chat/static/js/2.19b70482.chunk.js",
+    "static/js/2.19b70482.chunk.js.map": "/coc-chat/static/js/2.19b70482.chunk.js.map",
+    "index.html": "/coc-chat/index.html",
+    "static/css/main.7135b26b.chunk.css.map": "/coc-chat/static/css/main.7135b26b.chunk.css.map",
+    "static/js/2.19b70482.chunk.js.LICENSE.txt": "/coc-chat/static/js/2.19b70482.chunk.js.LICENSE.txt",
+    "static/media/BTC.8f7ba890.svg": "/coc-chat/static/media/BTC.8f7ba890.svg",
+    "static/media/arrow.f97395a0.svg": "/coc-chat/static/media/arrow.f97395a0.svg",
+    "static/media/arrow_s.ffb78e82.svg": "/coc-chat/static/media/arrow_s.ffb78e82.svg",
+    "static/media/App.css": "/coc-chat/static/media/coc_game_ui_update.b91c72b5.png",
+    "static/media/emodji.f5162e62.svg": "/coc-chat/static/media/emodji.f5162e62.svg",
+    "static/media/enlarge.80864486.svg": "/coc-chat/static/media/enlarge.80864486.svg",
+    "static/media/minimize.85ecfccb.svg": "/coc-chat/static/media/minimize.85ecfccb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.870c5925.js",
+    "static/js/2.19b70482.chunk.js",
+    "static/css/main.7135b26b.chunk.css",
+    "static/js/main.13c146e9.chunk.js"
+  ]
+}
