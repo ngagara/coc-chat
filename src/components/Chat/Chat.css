@@ -17,7 +17,8 @@
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 120px;
-    left: 50px;
+    left: auto;
+    right: auto;
 }
 
 .chat__header {
