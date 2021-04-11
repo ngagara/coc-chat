@@ -10,7 +10,7 @@ import Footer from '../Footer';
 
 import { Context } from '../../../contexts/Contexts';
 
-function Main({ setMessage, sendMessage }) {
+function Main({ setMessage, sendMessage, scrollHandler }) {
 
   const context = React.useContext(Context);
   const minimize = context.minimize;
@@ -20,9 +20,9 @@ function Main({ setMessage, sendMessage }) {
 
   return (
     <div className={`chat__main ${ large  ? "chat__main_b-size" : ""}`} style={ minimize ? {display: 'none'} : {display: 'flex'} }>  
-      { link === 'general' && lang === 'RU' && 
+      { link === 'general' && 
       <>
-      <General lang={lang}/>
+      <General lang={lang} scrollHandler={scrollHandler}/>
       <Footer setMessage={setMessage} sendMessage={sendMessage}/>
       </>
       }

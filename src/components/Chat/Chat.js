@@ -10,7 +10,7 @@ import socket from '../../utils/socket'
 
 import './Chat.css';
 
-function Chat() {
+const Chat = React.memo(() => {
 
  const [link, setLink] = useState('general');
  const [lang, setLang] = useState('RU');
@@ -21,7 +21,7 @@ function Chat() {
  const [isActive, setActive] = useState(false);
  const [isShift, setShift] = useState(false);
  const [limit, setLimit] = useState(15);
- const [fetching, setFetching] = useState(false);
+ const [skip, setSkip] = useState(0);
  const [userMessage, setUserMessage] = useState(
    {
       "from": `${userName}`,
@@ -30,42 +30,29 @@ function Chat() {
   );
 
   useEffect(() => {
-
-    api.getMessages(limit).then((res)=>{
-      setMessages(res)
+    api.getMessages(limit, skip).then((messages) => {
+      setMessages(messages);
      });
-
-    socket.addEventListener('message', () => {
-      api.getMessages(limit).then((res)=>{
-        setMessages(res) 
-       });
-     });
-
-    },[]);
-
-  useEffect(() => {
-    if (fetching) {
-      api.getMessages(limit).then((res)=>{
-        setMessages(res)
-       });
-    }
-    },[fetching]);
-
-
-  useEffect(() => {
-    document.querySelector('.chat__container_general').addEventListener('scroll', scrollHendler);
-    return function () {
-       document.querySelector('.chat__container_general').addEventListener('scroll', scrollHendler);
-    } 
   },[]);
 
-  let scrollHendler = (e) => {
-      if ( e.target.scrollHeight - Math.abs(e.target.scrollTop) - e.target.offsetHeight < 1 ) {
-        setLimit(prevState => prevState + 15)
-        setFetching(true)
-      } else {
-        setFetching(false)
-      }
+  useEffect(() => {
+    socket.addEventListener('message', (message) => {
+      setMessages(prevState => ([message, ...prevState]));
+    });
+  },[]);
+
+  useEffect(() => {
+    api.getMessages(limit, skip).then((messages) => {
+    //  setMessages(prevState => [...prevState, ...messages]);
+        setMessages(messages);
+    });
+  },[limit]);
+
+
+  let scrollHandler = (e) => {
+    if ( e.target.scrollHeight - Math.floor(Math.abs(e.target.scrollTop)) <= 322) {
+      setLimit(prevState => prevState + 15);
+    } 
   }; 
 
  let sendMessage = (e) => {
@@ -80,10 +67,10 @@ function Chat() {
       if (err) {
         console.error(err);
       } else {
+       api.getMessages(limit, skip).then((messages) =>{
+        setMessages(messages);
+       });
         console.log("success");
-        api.getMessages(limit).then((res)=>{
-          setMessages(res)
-         });
       }
     });
 
@@ -165,10 +152,10 @@ function Chat() {
        isShift={isShift}
        isActive={isActive}
        />
-      <Main setMessage={setMessage} sendMessage={sendMessage}/>
+      <Main setMessage={setMessage} sendMessage={sendMessage} scrollHandler={scrollHandler}/>
     </aside>
     </Context.Provider>
   );
-}
+});
 
 export default Chat;

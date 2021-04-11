@@ -2,9 +2,9 @@ import './Chat.css';
 
 import React, { useState, useEffect } from "react";
 
-function Message({ name, userBadge, statusBadge, text, time }) {
+const Message = ({ name, userBadge, statusBadge, text, time }) => {
 
-  const [isLevel, setLevel] = useState(0);
+  const [isLevel, setLevel] = useState(0); 
 
   useEffect(()=>{
     const rand = 1 + Math.random() * (10 - 1);
@@ -25,6 +25,6 @@ function Message({ name, userBadge, statusBadge, text, time }) {
       <p className="chat__message-time">{time}</p>
     </div>
   );
-}
+};
 
 export default Message;

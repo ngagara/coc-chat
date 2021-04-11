@@ -203,7 +203,7 @@
 
 .chat__message-container_user {
     justify-content: flex-end;
-    padding: 8px 10px;
+    padding: 8px 10px 0px 10px;
 }
 
 .chat__message {

@@ -12,7 +12,7 @@ import UserMessage from '../../UserMessage';
 
 import { Context } from '../../../../contexts/Contexts';
 
-function General({ lang }) {
+const General = ({ lang, scrollHandler }) => {
 
   const context = React.useContext(Context);
   const messages = context.messages;
@@ -23,22 +23,25 @@ function General({ lang }) {
   };
 
   return (
-    <div className="chat__container chat__container_general">
+    <div className="chat__container chat__container_general" onScroll={scrollHandler}>
       { lang === 'RU' ?
       <>
-        { messages && messages.map((item) => ( 
+        { messages && messages.map((item, index) => ( 
           item.from === userMessage.from ?  
           <UserMessage key={item.id} text={item.text} time={formatDate(item.createdAt)}/> :
           <Message key={item.id} name={item.from} userBadge={BTC} time={formatDate(item.createdAt)} text={item.text}/>
         ))}
       </> 
       : 
-      <div className="chat__container">
-      <h1>ЧАТ</h1>
-      </div>
+      <>
+        { messages && messages.map((item) => ( 
+          item.from === userMessage.from ?  
+          <UserMessage key={item.id} text={item.text} time={formatDate(item.createdAt)}/> : null
+        ))}
+      </> 
       }
     </div>
   );
-}
+};
 
 export default General;
