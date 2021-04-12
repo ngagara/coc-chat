@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/coc-chat/static/css/main.f4485342.chunk.css",
-    "main.js": "/coc-chat/static/js/main.13c146e9.chunk.js",
-    "main.js.map": "/coc-chat/static/js/main.13c146e9.chunk.js.map",
+    "main.css": "/coc-chat/static/css/main.3c3ef326.chunk.css",
+    "main.js": "/coc-chat/static/js/main.90500855.chunk.js",
+    "main.js.map": "/coc-chat/static/js/main.90500855.chunk.js.map",
     "runtime-main.js": "/coc-chat/static/js/runtime-main.870c5925.js",
     "runtime-main.js.map": "/coc-chat/static/js/runtime-main.870c5925.js.map",
-    "static/js/2.19b70482.chunk.js": "/coc-chat/static/js/2.19b70482.chunk.js",
-    "static/js/2.19b70482.chunk.js.map": "/coc-chat/static/js/2.19b70482.chunk.js.map",
+    "static/js/2.fde89197.chunk.js": "/coc-chat/static/js/2.fde89197.chunk.js",
+    "static/js/2.fde89197.chunk.js.map": "/coc-chat/static/js/2.fde89197.chunk.js.map",
     "index.html": "/coc-chat/index.html",
-    "static/css/main.f4485342.chunk.css.map": "/coc-chat/static/css/main.f4485342.chunk.css.map",
-    "static/js/2.19b70482.chunk.js.LICENSE.txt": "/coc-chat/static/js/2.19b70482.chunk.js.LICENSE.txt",
+    "static/css/main.3c3ef326.chunk.css.map": "/coc-chat/static/css/main.3c3ef326.chunk.css.map",
+    "static/js/2.fde89197.chunk.js.LICENSE.txt": "/coc-chat/static/js/2.fde89197.chunk.js.LICENSE.txt",
     "static/media/BTC.8f7ba890.svg": "/coc-chat/static/media/BTC.8f7ba890.svg",
     "static/media/arrow.f97395a0.svg": "/coc-chat/static/media/arrow.f97395a0.svg",
     "static/media/arrow_s.ffb78e82.svg": "/coc-chat/static/media/arrow_s.ffb78e82.svg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.870c5925.js",
-    "static/js/2.19b70482.chunk.js",
-    "static/css/main.f4485342.chunk.css",
-    "static/js/main.13c146e9.chunk.js"
+    "static/js/2.fde89197.chunk.js",
+    "static/css/main.3c3ef326.chunk.css",
+    "static/js/main.90500855.chunk.js"
   ]
 }
