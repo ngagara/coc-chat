@@ -114,6 +114,7 @@
     margin-left: 5px;
     display: flex;
     text-align: center;
+
 }
 
 .chat__drop-lang {
@@ -132,6 +133,7 @@
 .chat__drop-container {
     visibility: hidden;
     position: absolute;
+    z-index: 1;
     top: 33px;
     left: 0px;
     width: 50px;
@@ -177,8 +179,7 @@
 }
 
 .chat__container_general {
-    display: flex;
-    flex-direction: column;
+    transform: scaleY(-1);
     overflow-x: hidden;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -191,13 +192,14 @@
 }
 
 .chat__message-container {
+    transform: scaleY(-1);
     padding: 8px 10px 0 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.chat__fake-div {
+.chat__fake-block {
     padding-bottom: 8px;
 }
 

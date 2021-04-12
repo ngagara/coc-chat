@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React from "react";
 
 import '../../../Chat/Chat.css';
 
@@ -14,22 +14,18 @@ import { Context } from '../../../../contexts/Contexts';
 
 const General = ({ lang, scrollHandler }) => {
 
-  const messagesEndRef = useRef(null);
-
   const context = React.useContext(Context);
   const messages = context.messages;
   const userMessage = context.userMessage;
+  const messageEnd = context.messagesEndRef;
 
   function formatDate(date) {
     return date.substr(11, 5);
   };
 
-  useEffect(() => {
-      // messagesEndRef.current.scrollIntoView({ block: "end" });
-  }, [messages]);
-
   return (
     <div className="chat__container chat__container_general" onScroll={scrollHandler}>
+      <div ref={messageEnd} className="chat__fake-block"/>
       { lang === 'RU' ?
       <>
         { messages && messages.map((item) => ( 
@@ -46,7 +42,6 @@ const General = ({ lang, scrollHandler }) => {
         ))}
       </> 
       }
-      <div className="chat__fake-div" ref={messagesEndRef} />
     </div>
   );
 };

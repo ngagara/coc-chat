@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Context } from '../../contexts/Contexts';
 import { NAV } from '../../constants/constants'
 
@@ -21,7 +21,6 @@ const Chat = React.memo(() => {
  const [isActive, setActive] = useState(false);
  const [isShift, setShift] = useState(false);
  const [limit, setLimit] = useState(15);
- const [skip, setSkip] = useState(0);
  const [userMessage, setUserMessage] = useState(
    {
       "from": `${userName}`,
@@ -29,24 +28,20 @@ const Chat = React.memo(() => {
     }
   );
 
+  const messagesEndRef = useRef(null);
+
   useEffect(() => {
-    api.getMessages(limit, skip).then((messages) => {
+    api.getMessages(limit).then((messages) => {
       setMessages(messages);
      });
-  },[]);
+     console.log(limit);
+  },[limit]);
 
   useEffect(() => {
     socket.addEventListener('message', (message) => {
       setMessages(prevState => ([message, ...prevState]));
     });
   },[]);
-
-  useEffect(() => {
-    api.getMessages(limit, skip).then((messages) => {
-      setMessages(messages);
-    });
-    console.log(limit);
-  },[limit]);
 
   let scrollHandler = (e) => {
     if (e.target.scrollHeight - Math.floor(Math.abs(e.target.scrollTop)) <= 322) {
@@ -61,12 +56,12 @@ const Chat = React.memo(() => {
   }
 
   if (e.key === 'Enter') {
-
+    messagesEndRef.current.scrollIntoView({ block: "end", behavior: "smooth" });
     socket.emit("message", userMessage, (err) => {
       if (err) {
         console.error(err);
       } else {
-       api.getMessages(limit, skip).then((messages) =>{
+       api.getMessages(limit).then((messages) =>{
         setMessages(messages);
 
        });
@@ -138,7 +133,7 @@ const Chat = React.memo(() => {
   }
 
   return (
-    <Context.Provider value={{messages, userMessage, userName, minimize, enlarge, NAV, link, lang}}>
+    <Context.Provider value={{messages, userMessage, userName, minimize, enlarge, NAV, link, lang, messagesEndRef}}>
      <aside className={`chat ${ enlarge ? "chat_b-size" : ""}`}>
       <Header 
        goTo={goTo}
