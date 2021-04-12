@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 
 import '../../../Chat/Chat.css';
 
@@ -14,6 +14,8 @@ import { Context } from '../../../../contexts/Contexts';
 
 const General = ({ lang, scrollHandler }) => {
 
+  const messagesEndRef = useRef(null);
+
   const context = React.useContext(Context);
   const messages = context.messages;
   const userMessage = context.userMessage;
@@ -22,11 +24,15 @@ const General = ({ lang, scrollHandler }) => {
     return date.substr(11, 5);
   };
 
+  useEffect(() => {
+      // messagesEndRef.current.scrollIntoView({ block: "end" });
+  }, [messages]);
+
   return (
     <div className="chat__container chat__container_general" onScroll={scrollHandler}>
       { lang === 'RU' ?
       <>
-        { messages && messages.map((item, index) => ( 
+        { messages && messages.map((item) => ( 
           item.from === userMessage.from ?  
           <UserMessage key={item.id} text={item.text} time={formatDate(item.createdAt)}/> :
           <Message key={item.id} name={item.from} userBadge={BTC} time={formatDate(item.createdAt)} text={item.text}/>
@@ -40,6 +46,7 @@ const General = ({ lang, scrollHandler }) => {
         ))}
       </> 
       }
+      <div className="chat__fake-div" ref={messagesEndRef} />
     </div>
   );
 };

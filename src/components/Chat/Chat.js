@@ -15,7 +15,7 @@ const Chat = React.memo(() => {
  const [link, setLink] = useState('general');
  const [lang, setLang] = useState('RU');
  const [messages, setMessages] = useState([]);
- const [userName, setUserName] = useState('GG_nf');
+ const [userName, setUserName] = useState('username');
  const [minimize, setMinimize] = useState(false);
  const [enlarge, setEnlarge] = useState(false);
  const [isActive, setActive] = useState(false);
@@ -43,16 +43,15 @@ const Chat = React.memo(() => {
 
   useEffect(() => {
     api.getMessages(limit, skip).then((messages) => {
-    //  setMessages(prevState => [...prevState, ...messages]);
-        setMessages(messages);
+      setMessages(messages);
     });
+    console.log(limit);
   },[limit]);
 
-
   let scrollHandler = (e) => {
-    if ( e.target.scrollHeight - Math.floor(Math.abs(e.target.scrollTop)) <= 322) {
-      setLimit(prevState => prevState + 15);
-    } 
+    if (e.target.scrollHeight - Math.floor(Math.abs(e.target.scrollTop)) <= 322) {
+      setLimit(prevState => prevState += 15);
+    };
   }; 
 
  let sendMessage = (e) => {
@@ -69,6 +68,7 @@ const Chat = React.memo(() => {
       } else {
        api.getMessages(limit, skip).then((messages) =>{
         setMessages(messages);
+
        });
         console.log("success");
       }

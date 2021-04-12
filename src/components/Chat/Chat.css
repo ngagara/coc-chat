@@ -178,7 +178,7 @@
 
 .chat__container_general {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow-x: hidden;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -197,13 +197,13 @@
     align-items: center;
 }
 
-.chat__message-container:first-child {
+.chat__fake-div {
     padding-bottom: 8px;
 }
 
 .chat__message-container_user {
     justify-content: flex-end;
-    padding: 8px 10px 0px 10px;
+    padding: 8px 10px 0 10px;
 }
 
 .chat__message {
