@@ -1,6 +1,5 @@
 .App {
-  background-image: url(../src/icons/coc_game_ui_update.png);
-  background-size: cover;
+  background: linear-gradient(85deg, #fb63f9, #c2e534);
   height: 100vh;
   display: flex;
   flex-direction: column;
